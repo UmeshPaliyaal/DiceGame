@@ -51,8 +51,8 @@ const NumSelCon = styled.div`
 `;
 
 const Box = styled.div`
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border: 2px solid black;
   display: grid;
   place-items: center;

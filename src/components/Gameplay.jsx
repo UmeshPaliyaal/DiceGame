@@ -5,6 +5,7 @@ import DiceeRoll from "./dicee/DiceeRoll";
 import { useState } from "react";
 import { Button } from "../styled/Btn";
 import Rules from "./Rules.jsx";
+import OddEven from "./OddEven.jsx";
 
 function Gameplay() {
   const [score, setScore] = useState(0);
@@ -14,7 +15,7 @@ function Gameplay() {
   const [Error, setError] = useState("");
   const [showRules , setshowRules] = useState(false)
  
-
+  
   const resetScore = () => {
     setScore(0);
   }
@@ -23,13 +24,16 @@ function Gameplay() {
     if(!selNumber){
       setError("please select any number here")
        return;
-    }setError("")
+    }else{
+      setError("");
+    }
+
     if (isRolling) return;
 
     setIsRolling(true);
     
-    const rollingIntervalTime = 100; // Update dice every 100ms
-    const rollingTime = 1000 + Math.random() * 1000; // Randomize rolling time a bit
+    const rollingIntervalTime = 10; // Update dice every 100ms
+    const rollingTime = 400 + Math.random() * 400; // Randomize rolling time a bit
 
     // Start rolling animation
     const startTime = Date.now();
@@ -58,12 +62,15 @@ function Gameplay() {
     <MainContainer>
       <div className="Top_section">
         <TotelScore score={score} />
+        <div>
         <NumberSel  Error={Error} 
                     setError={setError} 
                     selNumber={selNumber} 
                     setSelNumber={setSelNumber} />
+         <OddEven/> 
+         </div>          
       </div>
-      <DiceeRoll diceValue={diceValue} rollDice={rollDice} />
+      <DiceeRoll selNumber={selNumber} diceValue={diceValue} rollDice={rollDice} />
       <div className="btns">
         <Button onClick={resetScore} className="btn1">Reset score</Button>
         <Button onClick={()=> setshowRules((prev) => !prev)}
@@ -76,6 +83,12 @@ function Gameplay() {
 }
 
 export default Gameplay;
+export const playAudio = (audioRef) => {
+  if (audioRef && audioRef.current) {
+    audioRef.current.play();
+  }
+};
+ 
 
 const MainContainer = styled.main`
   padding-top: 70px;

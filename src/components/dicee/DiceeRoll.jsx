@@ -1,10 +1,21 @@
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { playAudio } from '../Gameplay';
 
-const DiceeRoll = ({ diceValue, rollDice }) => {
+const DiceeRoll = ({selNumber , diceValue, rollDice }) => {
+  const audioRef = useRef(null);
+
+  const handleDiceClick = () => {
+    rollDice();
+   if(selNumber){ 
+    playAudio(audioRef);
+   }
+  };
+
   return (
     <DiceContainer>
       <Scene>
-        <Dice style={{ transform: getRotation(diceValue) }} onClick={rollDice}>
+        <Dice style={{ transform: getRotation(diceValue) }} onClick={handleDiceClick}>
           <Face className="face one" faceNumber={1} />
           <Face className="face two" faceNumber={4} />
           <Face className="face three" faceNumber={3} />
@@ -13,6 +24,10 @@ const DiceeRoll = ({ diceValue, rollDice }) => {
           <Face className="face six" faceNumber={5} />
         </Dice>
       </Scene>
+      <audio ref={audioRef}>
+        {/* Put your audio file link here */}
+        <source src="audio/dice-audio.mp3" type="audio/mp3" />
+      </audio>
       <p>Click on dice to roll</p>
     </DiceContainer>
   );
@@ -79,7 +94,7 @@ const Face = styled.div`
   font-size: 2rem;
   box-sizing: border-box;
   backface-visibility: hidden;
-  background-image: ${({ faceNumber }) => `url('${process.env.PUBLIC_URL}('public/images/sides/dice_${faceNumber}.png')`};
+  background-image: ${({ faceNumber }) => `url('public/images/sides/dice_${faceNumber}.png')`};
   background-size: cover;
 
   &.one {

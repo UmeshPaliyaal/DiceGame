@@ -10,7 +10,7 @@ function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
 
   return (
     <NumSelCon>
-        <div className='error'>{Error}</div>
+         <p>Select Number</p>
       <div className="flex">
         {arrayNumber.map((value, i) => (
           <Box
@@ -22,8 +22,7 @@ function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
           </Box>
         ))}
       </div>
-      <p>Select Number</p>
-    </NumSelCon>
+      <div className='error'>{Error}</div>    </NumSelCon>
   );
 }
 
@@ -36,6 +35,7 @@ const NumSelCon = styled.div`
 
   .error{
     color: red;
+    font-size:50px;
   }
 
   .flex {
@@ -46,6 +46,7 @@ const NumSelCon = styled.div`
   p {
     font-size: 50px;
     font-weight: 700;
+    margin-bottom:10px
   }
 `;
 

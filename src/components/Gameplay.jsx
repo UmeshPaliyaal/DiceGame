@@ -50,10 +50,8 @@ function Gameplay() {
 
         setDiceValue(randomFace);
         if (selNumber === randomFace) {
-          setScore(prev => prev + randomFace);
-        } else {
-          setScore(prev => prev - selNumber);
-        }
+          setScore(prev => prev + 2);
+        } 
         setSelNumber(null); // Reset selected number after rolling
       }
     }, rollingIntervalTime);

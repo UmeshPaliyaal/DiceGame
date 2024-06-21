@@ -15,9 +15,6 @@ function Gameplay() {
   const [showRules , setshowRules] = useState(false)
  
 
-  const displayRules = () => {
-    setshowRules(true)
-  }
   const resetScore = () => {
     setScore(0);
   }

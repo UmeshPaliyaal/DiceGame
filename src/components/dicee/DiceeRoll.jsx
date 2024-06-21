@@ -79,7 +79,7 @@ const Face = styled.div`
   font-size: 2rem;
   box-sizing: border-box;
   backface-visibility: hidden;
-  background-image: ${({ faceNumber }) => `url('/images/sides/dice_${faceNumber}.png')`};
+  background-image: ${({ faceNumber }) => `url('images/sides/dice_${faceNumber}.png')`};
   background-size: cover;
 
   &.one {

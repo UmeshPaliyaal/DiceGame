@@ -1,7 +1,19 @@
 import styled from 'styled-components'
 import { Button } from '../../styled/Btn';
+import { playAudio } from '../Gameplay';
+import { useRef } from 'react';
 
 function Startgame({toggle}) {
+
+  const audioRef = useRef(null);
+
+  const Toggle = () => {
+    playAudio(audioRef);
+    setTimeout(() => {
+      toggle();
+    }, 350);
+    
+  }
   return (
     <Container>
       <div>
@@ -11,8 +23,12 @@ function Startgame({toggle}) {
         <h1>
           DICE GAME
         </h1>
-        <Button onClick={toggle}>PLAY NOW</Button>
+        <Button onClick={Toggle}>PLAY NOW</Button>
       </div>
+      <audio ref={audioRef}>
+        {/* Put your audio file link here */}
+        <source src="audio/play-game.wav" type="audio/mp3" />
+      </audio> 
     </Container>
   )
 }

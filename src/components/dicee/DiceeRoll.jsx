@@ -26,7 +26,7 @@ const DiceeRoll = ({selNumber , diceValue, rollDice }) => {
       </Scene>
       <audio ref={audioRef}>
         {/* Put your audio file link here */}
-        <source src="public/audio/dice-audio.mp3" type="audio/mp3" />
+        <source src="audio/dice-audio.mp3" type="audio/mp3" />
       </audio>
       <p>Click on dice to roll</p>
     </DiceContainer>
@@ -94,7 +94,7 @@ const Face = styled.div`
   font-size: 2rem;
   box-sizing: border-box;
   backface-visibility: hidden;
-  background-image: ${({ faceNumber }) => `url('public/images/sides/dice_${faceNumber}.png')`};
+  background-image: ${({ faceNumber }) => `url('images/sides/dice_${faceNumber}.png')`};
   background-size: cover;
 
   &.one {

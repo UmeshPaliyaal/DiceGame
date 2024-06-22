@@ -1,9 +1,12 @@
 import styled from 'styled-components';
-
+import { useRef } from 'react';
+import { playAudio } from './Gameplay';
 function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
+  const audioRef = useRef(null)
   const arrayNumber = [1, 2, 3, 4, 5, 6];
 
   const numSelctorHandler = (value) =>{
+    playAudio(audioRef)
     setSelNumber(value)
     setError("");
   }
@@ -19,10 +22,15 @@ function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
             onClick={()=> numSelctorHandler(value) }
           >
             {value}
-          </Box>
+          </Box> 
         ))}
       </div>
-      <div className='error'>{Error}</div>    </NumSelCon>
+      <div className='error'>{Error}</div>  
+      <audio ref={audioRef}>
+        {/* Put your audio file link here */}
+        <source src="audio/num-sel2.wav" type="audio/mp3" />
+      </audio> 
+       </NumSelCon>
   );
 }
 

@@ -95,7 +95,7 @@ function Gameplay() {
             }
           } else if (checkbox2) {
             if (selectedExpectation === 'odd' && [1, 3, 5].includes(randomFace)) {
-              setScore((prev) => prev + 2);
+              setScore((prev) => prev + 3);
             } else if (selectedExpectation === 'even' && [2, 4, 6].includes(randomFace)) {
               setScore((prev) => prev + 3);
             } else {

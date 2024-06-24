@@ -87,13 +87,14 @@ function Gameplay() {
 
           // Check expectation and update score accordingly
           if (checkbox1) {
+            playAudio(audioRef2);
             if (selNumber === randomFace) {
-              playAudio(audioRef2);
               setScore((prev) => prev + 10);
             } else{
               setScore((prev) => prev - 3);
             }
           } else if (checkbox2) {
+            playAudio(audioRef2);
             if (selectedExpectation === 'odd' && [1, 3, 5].includes(randomFace)) {
               setScore((prev) => prev + 3);
             } else if (selectedExpectation === 'even' && [2, 4, 6].includes(randomFace)) {

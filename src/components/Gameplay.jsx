@@ -25,6 +25,8 @@ function Gameplay() {
 
   const audioRef = useRef(null);
   const audioRef2 = useRef(null);
+  const audioRef3 = useRef(null);
+
 
   const showrul = () => {
     playAudio(audioRef);
@@ -87,19 +89,22 @@ function Gameplay() {
 
           // Check expectation and update score accordingly
           if (checkbox1) {
-            playAudio(audioRef2);
-            if (selNumber === randomFace) {
+              if (selNumber === randomFace) {
+                playAudio(audioRef2);
               setScore((prev) => prev + 10);
             } else{
+              playAudio(audioRef3)
               setScore((prev) => prev - 3);
             }
           } else if (checkbox2) {
-            playAudio(audioRef2);
             if (selectedExpectation === 'odd' && [1, 3, 5].includes(randomFace)) {
+              playAudio(audioRef2);
               setScore((prev) => prev + 3);
             } else if (selectedExpectation === 'even' && [2, 4, 6].includes(randomFace)) {
+              playAudio(audioRef2);
               setScore((prev) => prev + 3);
             } else {
+              playAudio(audioRef3)
               setScore((prev) => prev - 4);
             }
           }
@@ -162,6 +167,9 @@ function Gameplay() {
           </audio>
           <audio ref={audioRef2}>
             <source src="audio/score-up.wav" type="audio/mp3" />
+          </audio>
+          <audio ref={audioRef3}>
+            <source src="audio/score-down.wav" type="audio/mp3" />
           </audio>
         </div>
       </div>

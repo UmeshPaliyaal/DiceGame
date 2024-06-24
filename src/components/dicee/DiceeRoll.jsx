@@ -2,13 +2,17 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { playAudio } from '../Gameplay';
 
-const DiceeRoll = ({selNumber , diceValue, rollDice }) => {
+const DiceeRoll = ({selNumber , diceValue, rollDice,selectedExpectation }) => {
   const audioRef = useRef(null);
+  const audioRef2 = useRef(null);
+
 
   const handleDiceClick = () => {
     rollDice();
-   if(selNumber){ 
+   if(selNumber || selectedExpectation ){ 
     playAudio(audioRef);
+   }else{
+    playAudio(audioRef2)
    }
   };
 
@@ -27,6 +31,10 @@ const DiceeRoll = ({selNumber , diceValue, rollDice }) => {
       <audio ref={audioRef}>
         {/* Put your audio file link here */}
         <source src="audio/dice-audio.mp3" type="audio/mp3" />
+      </audio>
+      <audio ref={audioRef2}>
+        {/* Put your audio file link here */}
+        <source src="audio/error.wav" type="audio/mp3" />
       </audio>
       <p>Click on dice to roll</p>
     </DiceContainer>

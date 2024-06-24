@@ -2,10 +2,11 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { playAudio } from './Gameplay';
 
-const CheckboxComponent = ({ checkbox1, setCheckbox1, checkbox2, setCheckbox2 }) => {
+const CheckboxComponent = ({ checkbox1, setCheckbox1, checkbox2, setCheckbox2 , setclickedButton ,setSelNumber }) => {
   const audioRef = useRef(null)
   const handleCheckbox1Change = () => {
-    playAudio(audioRef)
+    playAudio(audioRef);
+    setclickedButton(null);
     if (!checkbox1) {
       setCheckbox1(true);
       setCheckbox2(false);
@@ -16,6 +17,7 @@ const CheckboxComponent = ({ checkbox1, setCheckbox1, checkbox2, setCheckbox2 })
 
   const handleCheckbox2Change = () => {
     playAudio(audioRef)
+    setSelNumber(null);
     if (!checkbox2) {
       setCheckbox2(true);
       setCheckbox1(false);

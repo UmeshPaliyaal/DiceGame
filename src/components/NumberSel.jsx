@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 import { useRef } from 'react';
 import { playAudio } from './Gameplay';
-function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
+function NumberSel({ selNumber, setSelNumber ,setError , Error , disabled}) {
   const audioRef = useRef(null)
   const arrayNumber = [1, 2, 3, 4, 5, 6];
 
   const numSelctorHandler = (value) =>{
+    if (!disabled) {
     playAudio(audioRef)
     setSelNumber(value)
     setError("");
+    }
   }
 
   return (
@@ -20,6 +22,7 @@ function NumberSel({ selNumber, setSelNumber ,setError , Error}) {
             key={i}
             isSelected={value === selNumber}
             onClick={()=> numSelctorHandler(value) }
+            disabled={disabled}
           >
             {value}
           </Box> 

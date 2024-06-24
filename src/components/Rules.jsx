@@ -5,14 +5,21 @@ function Rules() {
     <RulesContainer>
         <h2>How to play the game</h2>
         <div className="text">
-            <p>Select any number</p>
-            <p>Click on the dice</p>
-            <p>After clicking dice will roll and 
-                if selected number matches with dice 
-                number you will get number of points 
-                you selected , if it doesn't matches
-                you will loose same number of points 
-                you selected.
+            <p>click on the checkbox to ensure which game you want to play</p>
+            <p>If you click on checkbox 1 then - select any number 
+            If you click on checkbox 1 then - select any button
+            </p>
+            <p>Now click on the dice </p>
+            <p>After clicking ,dice will roll and -- 
+                if you selected checkbox1 then selected any number and if that number 
+                matches with dice number - you will get 10 points.
+                and if fails to match number - yo will loose 3 points.
+                if you selected checkbox2 then selected- (Odd) button and if 
+                dice stops on an Odd Number - you will get 3 points.
+                but if dice stopped on even number - you will looose 4 points.
+                if you selected checkbox2 then selected- (Even) button and if 
+                dice stops on an Even Number - you will get 3 points.
+                but if dice stopped on even number - you will looose 4 points.
             </p>
         </div>
     </RulesContainer>
